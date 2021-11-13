@@ -7,9 +7,7 @@ Klonirati repozitorij negdje na računar, te navigirati preko terminala do njega
 
 ``` 
 $ pip install -r requirements.txt
-$ set FLASK_APP=app.py
-$ set FLASK_ENV=development
-$ flask run
+$ python app.py
 ```
 
 Napravljen je Swagger za UI. Nakon pokretanja aplikacije, pokrenuti http://localhost:5000/apidocs/#/default za prikaz.
