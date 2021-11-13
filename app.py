@@ -229,13 +229,13 @@ def setCasheTimeout(timeout):
     return "Timeout set"
 
 
-# def cleanCasheInterval():
-#     threading.Timer(60, cleanCasheInterval).start()
-#     schedule.run_pending()
+def cleanCasheInterval():
+    threading.Timer(60, cleanCasheInterval).start()
+    schedule.run_pending()
 
-# schedule.every().day.at(str(redisDB.get('timeout'))).do(cleanCashe)
-# #clean cashe periodically
-# cleanCasheInterval()
+schedule.every().day.at(str(redisDB.get('timeout/time'))).do(cleanCashe)
+#clean cashe periodically
+cleanCasheInterval()
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=5000)
