@@ -100,25 +100,25 @@ def getDynamicPrimes(n):
         arr = json.loads(cache.get(f'/dynamicPrimes/{start}{redisConst}'))
         for number in range(start, int(n)):
             skip = False
-            i = 2
+            i = 3
             while i * i <= number:
                 if number % i == 0:
                     skip = True
                     break
-                i += 1
+                i += 2
             if not skip:
                 arr.append(number)
         cache.add(f'/dynamicPrimes/{n}{redisConst}', json.dumps(arr))
         return json.dumps(arr)
 
-    arr = [2, 3]
-    for number in range(4, int(n)):
+    arr = [2]
+    for number in range(3, int(n), 2):
         skip = False
-        i = 2
+        i = 3
         while i * i <= number:
             if number % i == 0:
                 skip = True
-            i += 1
+            i += 2
         if not skip:
             arr.append(number)
     cache.add(f'/dynamicPrimes/{n}{redisConst}', json.dumps(arr))
